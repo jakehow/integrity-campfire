@@ -12,14 +12,14 @@ module Integrity
       end
 
       def deliver!
-        room.speak "#{short_message}. #{build_url}"
+        room.speak "#{short_message}. #{commit_url}"
         room.paste full_message if build.failed?
       end
 
     private
       def room
         @room ||= begin
-          campfire = Tinder::Campfire.new(config['account'])
+          campfire = Tinder::Campfire.new(config['account'], :ssl=>config['ssl'])
           campfire.login(config['user'], config['pass'])
           campfire.find_room_by_name(config['room'])
         end

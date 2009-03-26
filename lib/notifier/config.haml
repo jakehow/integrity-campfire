@@ -13,3 +13,6 @@
 %p.normal
   %label{ :for => "campfire_notifier_pass" } Password
   %input.text#campfire_notifier_pass{ :name => "notifiers[Campfire][pass]", :value => config["pass"], :type => "text" }
+%p.normal
+  %label{ :for => "campfire_ssl" } Use SSL?
+  %input.checkbox#campfire_notifier_ssl{ :name => "notifiers[Campfire][ssl]", :value => config["ssl"], :type => "checkbox" }
